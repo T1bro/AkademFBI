@@ -1,0 +1,42 @@
+GetNewLine(filename) {
+   static old
+   static new
+   static EngineState
+   if !old
+   {
+      FileGetSize, old, %filename%
+      new := old
+   }
+   while old = new
+   {
+      sleep 100
+      FileGetSize, new, %filename%
+      
+      
+      
+      
+    if (isPlayerDriver()) {
+       if (getVehicleEngineState() && !EngineState) {
+          SendChat("/me вставил(а) ключ и завел(а) " getVehicleModelName())
+          EngineState := true
+      }else if (!getVehicleEngineState() && EngineState) {
+          SendChat("/me заглушил(а) " getVehicleModelName() " и вытащил(а) ключи")
+          EngineState := false
+      }
+  }
+  
+  
+  
+  
+  
+   
+    }
+   old := new
+   Loop, read, %filename%
+      if A_LoopReadLine
+   {
+    global lastline11 := last
+        last := A_LoopReadLine
+   }
+   return last
+}
